@@ -1,0 +1,290 @@
+/* ---- Pakistan Times: vintage A4 front page ---- */
+.paper-wrap {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.newspaper {
+  --edge: #26221a;
+  width: 794px; /* A4 @ 96dpi */
+  min-height: 1123px;
+  box-sizing: border-box;
+  padding: 30px 34px 40px;
+  background-color: #f3e9d2;
+  background-image:
+    radial-gradient(circle at 20% 15%, rgba(120, 90, 40, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(90, 60, 20, 0.07), transparent 45%),
+    linear-gradient(115deg, rgba(0, 0, 0, 0.015) 0%, transparent 30%);
+  color: #211d15;
+  font-family: 'Inter', system-ui, sans-serif;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+/* Aged edges / sepia vignette */
+.newspaper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 90px rgba(80, 55, 20, 0.28);
+  mix-blend-mode: multiply;
+}
+
+/* ---- Masthead ---- */
+.mast {
+  text-align: center;
+  border-bottom: 3px double var(--edge);
+  padding-bottom: 8px;
+  overflow: hidden;
+}
+.mast-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #3a3226;
+  margin-bottom: -2px;
+}
+.mast-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.mast-rule {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+  padding: 5px 2px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.mast-rule span {
+  white-space: nowrap;
+}
+.mast-rule span:first-child,
+.mast-rule span:last-child {
+  flex: 0 0 170px;
+}
+.mast-rule span:first-child {
+  text-align: left;
+}
+.mast-rule span:last-child {
+  text-align: right;
+}
+.mast-rule .dot {
+  flex: 1 1 auto;
+  color: #01411c;
+  text-align: center;
+}
+
+/* ---- Section band ---- */
+.band {
+  margin: 12px 0 10px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+  padding: 6px 0;
+  color: #01411c;
+}
+
+/* ---- Headline ---- */
+.kicker {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  font-size: 12px;
+  color: #7a1f1f;
+  text-transform: uppercase;
+  text-align: center;
+}
+.headline {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 1.05;
+  text-align: center;
+  margin: 4px 0 6px;
+}
+.subhead {
+  text-align: center;
+  font-style: italic;
+  font-size: 16px;
+  color: #3a3226;
+  max-width: 90%;
+  margin: 0 auto 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--edge);
+}
+
+/* ---- Body / content grid ---- */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 12px;
+}
+.byline {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4a4133;
+  margin-bottom: 8px;
+}
+.byline b {
+  color: #211d15;
+}
+.article p {
+  font-size: 13.5px;
+  line-height: 1.62;
+  text-align: justify;
+  margin: 0 0 9px;
+  hyphens: auto;
+}
+.article p:first-of-type::first-letter {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 52px;
+  line-height: 0.8;
+  float: left;
+  padding: 6px 8px 0 0;
+  color: #01411c;
+}
+
+/* ---- Hero image ---- */
+.hero {
+  border: 1px solid var(--edge);
+  padding: 6px;
+  background: #ece0c6;
+}
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: sepia(0.35) contrast(1.03) brightness(0.99) grayscale(0.05);
+}
+.hero-cap {
+  font-size: 11px;
+  font-style: italic;
+  color: #4a4133;
+  text-align: center;
+  padding: 6px 4px 2px;
+  border-top: 1px solid var(--edge);
+  margin-top: 6px;
+}
+
+/* ---- Pull quote ---- */
+.pull {
+  margin: 10px 0 0;
+  border-top: 2px solid var(--edge);
+  border-bottom: 2px solid var(--edge);
+  padding: 10px 6px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+/* ---- Prediction box ---- */
+.prediction {
+  margin-top: 14px;
+  border: 2px solid #01411c;
+  background: rgba(1, 65, 28, 0.06);
+  padding: 12px 14px;
+  text-align: center;
+}
+.prediction .lbl {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #01411c;
+  margin-bottom: 6px;
+}
+.prediction .txt {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+/* ---- Footer rule ---- */
+.paper-foot {
+  margin-top: 18px;
+  border-top: 3px double var(--edge);
+  padding-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4a4133;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body {
+    width: 210mm;
+    min-height: 297mm;
+    background: #fff !important;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .app-shell {
+    display: block !important;
+    min-height: auto !important;
+    padding: 0 !important;
+  }
+
+  .paper-wrap,
+  .paper-wrap * {
+    visibility: visible !important;
+  }
+
+  .paper-wrap {
+    position: absolute;
+    inset: 0;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    display: block;
+  }
+
+  .paper-wrap > div {
+    transform: none !important;
+  }
+
+  .newspaper {
+    width: 210mm;
+    height: 297mm;
+    min-height: 297mm;
+    box-shadow: none;
+  }
+}

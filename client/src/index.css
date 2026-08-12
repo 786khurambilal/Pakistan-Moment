@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #f4ecd8;
+  background: #01411c;
+  background-attachment: fixed;
+}
+
+/* Pakistan flag field in the app chrome (not the newspaper). */
+.app-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 7rem;
+  position: relative;
+  isolation: isolate;
+}
+
+.app-shell::before {
+  content: '';
+  position: fixed;
+  top: 48%;
+  left: 62%;
+  width: min(72vmin, 620px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 63% 43%, #01411c 0 42%, transparent 42.5%),
+    radial-gradient(circle at 42% 50%, rgba(255, 255, 255, 0.2) 0 52%, transparent 52.5%);
+  opacity: 1;
+  pointer-events: none;
+  z-index: -1;
+  transform: translate(-50%, -50%) rotate(-12deg);
+}
+
+.app-shell::after {
+  content: '';
+  position: fixed;
+  top: 40%;
+  left: 70%;
+  width: min(16vmin, 140px);
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.22);
+  clip-path: polygon(
+    50% 0%,
+    61% 34%,
+    98% 35%,
+    68% 56%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 56%,
+    2% 35%,
+    39% 34%
+  );
+  transform: translate(-50%, -50%) rotate(18deg);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 font-semibold tracking-wide transition;
+  font-family: 'Inter', system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.btn-primary {
+  @apply btn bg-[#f4ecd8] text-pak-dark shadow-lg hover:bg-white;
+}
+.btn-primary:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+.btn-ghost {
+  @apply btn border border-[#f4ecd8]/40 text-paper hover:bg-[#f4ecd8]/10;
+}
+
+.card {
+  @apply rounded-2xl border border-[#f4ecd8]/15 bg-[#f4ecd8]/[0.04] backdrop-blur;
+}
+
+.wizard-card {
+  width: min(100%, 75vw);
+  max-width: 1120px;
+}
+
+@media (max-width: 768px) {
+  .wizard-card {
+    width: 100%;
+  }
+}
+
+.field-input {
+  @apply w-full rounded-xl border border-[#f4ecd8]/25 bg-[#01160c]/60 px-4 py-3 text-paper placeholder:text-paper/35 outline-none focus:border-[#f4ecd8]/70;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.step-title {
+  @apply font-display text-3xl md:text-4xl font-black text-paper;
+}
+.step-sub {
+  @apply mt-2 text-paper/70;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  animation: spin-slow 2.2s linear infinite;
+}
